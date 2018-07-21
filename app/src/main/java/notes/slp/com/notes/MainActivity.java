@@ -1,5 +1,6 @@
 package notes.slp.com.notes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,7 +17,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import notes.slp.com.notes.model.NoteEntity;
+import notes.slp.com.notes.ui.NotesAdapter;
 import notes.slp.com.notes.utilities.SampleData;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
+    @OnClick(R.id.fab)
+    void fabClickHandler () {
+        Intent intent = new Intent(this, EditorActivity.class);
+        startActivity(intent);
+    }
+
     private List<NoteEntity> notesData = new ArrayList<>();
+    private NotesAdapter mNotesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +46,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initRecyclerView(); 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         notesData.addAll(SampleData.getNotes());
     }
 
@@ -51,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
+
+        mNotesAdapter = new NotesAdapter(notesData,this);
+        mRecyclerView.setAdapter(mNotesAdapter);
     }
 
     @Override
