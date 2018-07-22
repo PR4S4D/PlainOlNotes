@@ -18,6 +18,12 @@ public class NoteEntity {
     public NoteEntity() {
     }
 
+    @Ignore
+    public NoteEntity(Date date, String text) {
+        this.date = date;
+        this.text = text;
+    }
+
     public NoteEntity(int id, Date date, String text) {
         this.id = id;
         this.date = date;

@@ -3,6 +3,7 @@ package notes.slp.com.notes.ui;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.i("Tag", "onBindViewHolder: " + String.valueOf( mNotes.get(position).getId()));
         final NoteEntity note = mNotes.get(position);
         holder.mNoteText.setText(note.getText());
     }
