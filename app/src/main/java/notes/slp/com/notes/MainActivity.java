@@ -2,13 +2,10 @@ package notes.slp.com.notes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,7 +15,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import notes.slp.com.notes.model.NoteEntity;
+import notes.slp.com.notes.database.NoteEntity;
 import notes.slp.com.notes.ui.NotesAdapter;
 import notes.slp.com.notes.utilities.SampleData;
 

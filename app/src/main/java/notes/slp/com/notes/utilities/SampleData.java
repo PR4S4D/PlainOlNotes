@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import notes.slp.com.notes.model.NoteEntity;
+import notes.slp.com.notes.database.NoteEntity;
 
 public class SampleData {
 
